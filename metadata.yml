@@ -50,8 +50,6 @@ apt:
 repo_update: true
 
 packages:
-  - apt-transport-https
-  - ca-certificates
   - ruby-full
   - ruby-bundler
   - build-essential
