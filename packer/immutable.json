@@ -1,0 +1,47 @@
+{
+    "builders": [
+        {
+            "type": "yandex",
+            "service_account_key_file": "{{user `sa_key_file_path`}}",
+            "folder_id": "{{user `catalog_id`}}",
+            "source_image_family": "{{user `source_image_id`}}",
+            "image_name": "reddit-base-{{timestamp}}",
+            "image_family": "reddit-full",
+            "ssh_username": "ubuntu",
+            "platform_id": "standard-v1",
+            "instance_mem_gb": 4,
+            "preemptible": "true",
+            "subnet_id": "{{user `subnet_id`}}",
+            "zone": "ru-central1-a",
+            "use_ipv4_nat": "true"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/install_ruby.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "shell",
+            "script": "files/deploy.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "shell",
+            "script": "files/create_systemd_service.sh",
+            "execute_command": "sudo {{.Path}}"
+        }
+    ],
+    "post-processors": [
+      {
+        "type": "manifest",
+        "output": "output.json"
+      }
+    ]
+}

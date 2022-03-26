@@ -40,3 +40,8 @@ someinternalhost_IP = 10.128.0.23
 
 testapp_IP = 51.250.70.39
 testapp_port = 9292
+
+# Домашнее задание №5
+- Создал образ с помощью Packer
+- Создал baked-образ со всемя зависимостями и кодом приложения (задание со *). Шаблон immutable.json
+- Создал скрипт create-reddit-vm.sh в директории config-scripts, который по шаблону config-scripts/immutable.json создает образ диска и поднимает с помощью Yandex.Cloud CLI ВМ, основанную на созданном ранее образе.
