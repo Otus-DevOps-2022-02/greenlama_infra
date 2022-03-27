@@ -1,0 +1,6 @@
+{
+    "catalog_id": "1234567890qwerty",
+    "source_image_id": "bubuntu-9000",
+    "sa_key_file_path": "fake.key",
+    "subnet_id": "subnetwork"
+}
