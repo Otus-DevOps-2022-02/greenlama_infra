@@ -1,11 +1,3 @@
-terraform {
-  required_providers {
-    yandex = {
-      source = "yandex-cloud/yandex"
-    }
-  }
-}
-
 provider "yandex" {
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
@@ -13,8 +5,8 @@ provider "yandex" {
 }
 
 resource "yandex_compute_instance" "app" {
-  name = var.yc_instance_name
-
+  name  = "var.yc_instance_name-${count.index + 1}"
+  count = var.vm_count
   resources {
     cores  = 2
     memory = 2
@@ -41,10 +33,9 @@ resource "yandex_compute_instance" "app" {
 
   connection {
     type = "ssh"
-    host = yandex_compute_instance.app.network_interface.0.nat_ip_address
+    host = self.network_interface.0.nat_ip_address
     user = "ubuntu"
     agent = false
-    # путь до приватного ключа
     private_key = file(var.private_key_path)
   }
 

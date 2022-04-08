@@ -2,3 +2,9 @@
 /packer/output.json
 /config-scripts/variables.json
 /config-scripts/output.json
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/
+/terraform/terraform

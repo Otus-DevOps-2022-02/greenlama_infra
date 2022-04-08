@@ -24,3 +24,7 @@ variable "yc_instance_name" {
   description = "Instance name"
   default     = "reddit-app"
 }
+variable "vm_count" {
+  description = "Count of vms"
+  default     = 1
+}
