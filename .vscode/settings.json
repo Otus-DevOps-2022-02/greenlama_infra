@@ -1,0 +1,8 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json#/definitions/playbook": [
+            "file:///home/astralinux.ru/nkamaleev/git/greenlama_infra/ansible/deploy.yml",
+            "file:///home/astralinux.ru/nkamaleev/git/greenlama_infra/ansible/site.yml"
+        ]
+    }
+}
