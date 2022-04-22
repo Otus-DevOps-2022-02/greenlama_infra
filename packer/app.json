@@ -7,7 +7,7 @@
             "source_image_family": "{{user `source_image_id`}}",
             "image_name": "ruby-{{timestamp}}",
             "image_family": "ruby-base",
-            "ssh_username": "appuser",
+            "ssh_username": "ubuntu",
             "platform_id": "standard-v1",
             "instance_mem_gb": 4,
             "preemptible": "true",
@@ -19,7 +19,7 @@
     "provisioners": [
         {
             "type": "ansible",
-            "playbook_file": "ansible/packer_app.yml"
+            "playbook_file": "ansible/playbooks/packer_app.yml"
         }
     ]
 }

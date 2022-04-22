@@ -9,3 +9,5 @@
 .terraform/
 /terraform/terraform
 *.retry
+vault.key
+jdauphant.nginx
