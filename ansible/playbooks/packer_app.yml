@@ -1,14 +1,6 @@
 ---
-- name: Install packages
-  hosts: all
+- name: Configure App
+  hosts: app
   become: true
-  tasks:
-  - name: Install packages
-    apt:
-      name: "{{ item }}"
-      state: present
-      update_cache: true
-    with_items:
-      - ruby-full
-      - ruby-bundler
-      - build-essential
+  roles:
+    - app
